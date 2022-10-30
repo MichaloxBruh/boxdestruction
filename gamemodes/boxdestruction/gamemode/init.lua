@@ -10,6 +10,16 @@ function GM:PlayerInitialSpawn(ply)
     ply:SetHealth("200")
     ply:SetMaxHealth("200")
     ply:Give("weapon_frag", false)
+    for k, v in ipairs( ents.FindByClass( "prop_*" ) ) do
+        local pos =  v:GetPos() 
+    end
+    local button = ents.Create( "npc_kleiner" )
+    button:SetModel( "models/Kleiner.mdl" )
+    button:SetPos( pos )
+    button:Spawn()
+
+
+
 end
 
 function GM:PlayerSpawn(ply)
@@ -22,7 +32,7 @@ function GM:KeyPress(ply, key)
         if cooldown == 0 then
             ply:GiveAmmo(1,"Grenade", true)
             cooldown = 1
-            timer.Simple(2, function()
+            timer.Simple(1, function()
                 cooldown = 0
             end)
         elseif cooldown == 1 then 
@@ -34,7 +44,7 @@ function GM:KeyPress(ply, key)
         if cooldown == 0 then 
             ply:GiveAmmo(1,"Grenade", true)
          cooldown = 1
-            timer.Simple(2, function()
+            timer.Simple(1, function()
                  cooldown = 0
             end)
         elseif cooldown == 1 then 
@@ -43,4 +53,16 @@ function GM:KeyPress(ply, key)
 
         end
     end
+
+   
+
+
+
+
+
+
+
+
+
 end
+
