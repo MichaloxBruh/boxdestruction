@@ -8,9 +8,20 @@ function GM:PlayerInitialSpawn(ply)
     ply:SetHealth("200")
     ply:SetMaxHealth("200")
     ply:Give("weapon_frag", false)
+
+
+
 end
 
 function GM:PlayerSpawn(ply)
     ply:SetHealth("200")
     ply:Give("weapon_frag", false)
 end
+
+function GM:KeyPress(ply, key)
+    if (key == IN_ATTACK) then 
+        ply:GiveAmmo(1,"Grenade", true)
+    end
+end
+
+
