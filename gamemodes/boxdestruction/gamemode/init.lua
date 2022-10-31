@@ -13,10 +13,10 @@ function GM:PlayerInitialSpawn(ply)
     for k, v in ipairs( ents.FindByClass( "prop_*" ) ) do
         local pos =  v:GetPos() 
     end
-    local button = ents.Create( "npc_kleiner" )
-    button:SetModel( "models/Kleiner.mdl" )
-    button:SetPos( pos )
-    button:Spawn()
+    --local button = ents.Create( "npc_kleiner" )
+    --button:SetModel( "models/Kleiner.mdl" )
+    --button:SetPos( pos )
+    --button:Spawn()
 
 
 
@@ -43,7 +43,7 @@ function GM:KeyPress(ply, key)
     elseif (key == IN_ATTACK2) then 
         if cooldown == 0 then 
             ply:GiveAmmo(1,"Grenade", true)
-         cooldown = 1
+            cooldown = 1
             timer.Simple(1, function()
                  cooldown = 0
             end)
